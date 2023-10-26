@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-TW"><head><meta name="GCD" content="YTk3ODQ3ZWZhN2I4NzZmMzBkNTEwYjJl5b0e9d98bdf44ab0db23979590235762"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鬼氏企業計算機</title>
+    <style>body{background-color:#f5e9b9;text-align:center}h1{font-size:32px}h2{font-size:28px}.questions{font-size:18px;color:black}.button-container{border:1px solid black;display:inline-block;padding:10px;margin-top:10px}.button{color:red;font-size:20px}.results{display:none}.results p{font-size:20px}.links{margin-top:20px}.links a{font-size:20px;margin:10px;text-decoration:none}</style>
+</head>
+<body>
+    <h1>鬼氏企業計算機</h1>
+    <h2>夢時代拿弓的表攻</h2>
+    <div class="questions">
+        <label for="agility">敏捷：</label>
+        <input type="text" id="agility" class="input-box" required=""> <!-- 敏捷輸入欄位 -->
+        <br>
+        <label for="strength">力量：</label>
+        <input type="text" id="strength" class="input-box" required=""> <!-- 力量輸入欄位 -->
+        <br>
+        <label for="attack">物攻：</label>
+        <input type="text" id="attack" class="input-box" required=""> <!-- 物攻輸入欄位 -->
+        <br>
+        <label for="money">金錢：</label>
+        <input type="text" id="money" class="input-box" required=""> <!-- 金錢輸入欄位 -->
+        <br>
+    </div>
+  <div class="button-container">
+        <button onclick="calculate()">讓鬼哥幫你看看</button>
+    </div>
+    <div class="results">
+        <p>表攻會增加：<span id="resultE"></span></p>
+        <p>每1元變成：<span id="resultF"></span></p>
+        <p>我是Sweet鬼翔o</p>
+    </div>
+    <div class="links">
+        <a href="https://www.dms113.com" style="color: orange;">夢時代楓之谷官網</a>
+        <a href="https://discord.com/invite/3EacJSN" style="color: blue;">夢時代DC論壇</a>
+        <a href="https://youtube.com/@Sweeto-jf2tn?si=56ofEkhM4l2a5u9X" style="color: purple;">鬼翔的YouTube</a>
+    </div>
+    <script>
+        function calculate() {
+            // 取得輸入值
+            var A = parseFloat(document.getElementById("agility").value);
+            var B = parseFloat(document.getElementById("strength").value);
+            var C = parseFloat(document.getElementById("attack").value);
+            var D = parseFloat(document.getElementById("money").value);
+
+            // 計算E和F
+            var E = ((A * 3.4) + B) * (C / 100);
+            var F = E / D;
+
+            // 顯示結果
+            document.getElementById("resultE").textContent = E;
+            document.getElementById("resultF").textContent = F;
+
+            // 顯示結果區塊
+            document.querySelector(".results").style.display = "block";
+        }
+    </script>
+
+</body></html>
