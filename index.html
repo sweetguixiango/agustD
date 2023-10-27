@@ -1,59 +1,139 @@
 <!DOCTYPE html>
-<html lang="zh-TW"><head><meta name="GCD" content="YTk3ODQ3ZWZhN2I4NzZmMzBkNTEwYjJl5b0e9d98bdf44ab0db23979590235762"/>
+<html lang="zh-TW">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>鬼氏企業計算機</title>
-    <style>body{background-color:#f5e9b9;text-align:center}h1{font-size:32px}h2{font-size:28px}.questions{font-size:18px;color:black}.button-container{border:1px solid black;display:inline-block;padding:10px;margin-top:10px}.button{color:red;font-size:20px}.results{display:none}.results p{font-size:20px}.links{margin-top:20px}.links a{font-size:20px;margin:10px;text-decoration:none}</style>
+    <title>夢時代表攻計算機「鬼氏集團出品」</title>
 </head>
-<body>
-    <h1>鬼氏企業計算機</h1>
-    <h2>夢時代拿弓的表攻</h2>
-    <div class="questions">
-        <label for="agility">敏捷：</label>
-        <input type="text" id="agility" class="input-box" required=""> <!-- 敏捷輸入欄位 -->
-        <br>
-        <label for="strength">力量：</label>
-        <input type="text" id="strength" class="input-box" required=""> <!-- 力量輸入欄位 -->
-        <br>
-        <label for="attack">物攻：</label>
-        <input type="text" id="attack" class="input-box" required=""> <!-- 物攻輸入欄位 -->
-        <br>
-        <label for="money">金錢：</label>
-        <input type="text" id="money" class="input-box" required=""> <!-- 金錢輸入欄位 -->
-        <br>
-    </div>
-  <div class="button-container">
-        <button onclick="calculate()">讓鬼哥幫你看看</button>
-    </div>
-    <div class="results">
-        <p>表攻會增加：<span id="resultE"></span></p>
-        <p>每1元變成：<span id="resultF"></span></p>
-        <p>我是Sweet鬼翔o,感謝AgustD贊助製作費</p>
-    </div>
-    <div class="links">
-        <a href="https://www.dms113.com" style="color: orange;">夢時代楓之谷官網</a>
-        <a href="https://discord.com/invite/3EacJSN" style="color: blue;">夢時代DC論壇</a>
-        <a href="https://youtube.com/@Sweeto-jf2tn?si=56ofEkhM4l2a5u9X" style="color: purple;">鬼翔的YouTube</a>
-    </div>
-    <script>
-        function calculate() {
-            // 取得輸入值
-            var A = parseFloat(document.getElementById("agility").value);
-            var B = parseFloat(document.getElementById("strength").value);
-            var C = parseFloat(document.getElementById("attack").value);
-            var D = parseFloat(document.getElementById("money").value);
-
-            // 計算E和F
-            var E = A*19.2833+B*3.5486+C*57.2857;
-            var F = E / D;
-
-            // 顯示結果
-            document.getElementById("resultE").textContent = E;
-            document.getElementById("resultF").textContent = F;
-
-            // 顯示結果區塊
-            document.querySelector(".results").style.display = "block";
+      <style>
+        body {
+            background-color: #FFEB3B; /* 米黃色 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            margin: 10px 70px;
+             border: 10px solid #dcdcdc; /* 灰色邊框 */
         }
-    </script>
+       
+    </style>
+<body>
+      <div class="section">
+   <div class="section" style="margin-top: 30px;">
+        <h2 id="rainbow-text" style="font-size: 30px;">夢時代表攻計算機</h2>
+</div>
+       <div class="section">
+<label for="strength">力量：</label>
+    <input type="text" id="strength" placeholder="力量"><br>
+    <label for="agility">敏捷：</label>
+    <input type="text" id="agility" placeholder="敏捷"><br>
+    <label for="luck">幸運：</label>
+    <input type="text" id="luck" placeholder="幸運"><br>
+    <label for="intelligence">智力：</label>
+    <input type="text" id="intelligence" placeholder="智力"><br>
+    <label for="attack">攻擊：</label>
+    <input type="text" id="attack" placeholder="攻擊"><br>
+    <label for="price">價錢：</label>
+    <input type="text" id="price" placeholder="價錢"><br>
+    <select id="weapon">
+        <option value="1">單手劍</option>
+        <option value="2">單手斧/棍/短杖/長杖 (砍)</option>
+       <option value="3">單手斧/棍/短杖/長杖 (戳)</option>
+<option value="4">雙手劍</option>
+<option value="5">雙手斧/棍 (砍)</option>
+<option value="6">雙手斧/棍 (戳)</option>
+<option value="7">槍 (砍)</option>
+<option value="8">槍 (戳)</option>
+<option value="9">矛 (砍)</option>
+<option value="10">矛 (戳)</option>
+<option value="11">短劍 (非盜賊)</option>
+<option value="12">短劍/飛鏢 (盜賊)</option>
+<option value="13">弓</option>
+<option value="14">弩</option>
+<option value="15">指虎</option>
+<option value="16">火槍</option>
+    </select><br>
+    <button onclick="calculate()">鬼氏集團為您試算</button>
+<div id="result"></div>
+            <div id="ratio"></div>
+ </div>
+  <script>
+        function calculate() {
+            var strength = parseInt(document.getElementById("strength").value) || 0;
+            var agility = parseInt(document.getElementById("agility").value) || 0;
+            var luck = parseInt(document.getElementById("luck").value) || 0;
+            var intelligence = parseInt(document.getElementById("intelligence").value) || 0;
+            var attack = parseInt(document.getElementById("attack").value) || 0;
+            var price = parseInt(document.getElementById("price").value) || 0;
+            var weapon = parseInt(document.getElementById("weapon").value);
+
+            var result;
+
+            switch (weapon) {
+                case 1:
+                    result = (4.0 * strength + agility) * attack / 100 + 0 + 0;
+                    break;
+                case 2:
+                    result = (4.4 * strength + agility) * attack / 100 + 0 + 0;
+                    break;
+                case 3:
+                    result = (3.2 * strength + agility) *attack / 100 + 0 + 0;
+break;
+case 4:
+result = (4.6 * strength + agility) * attack / 100 + 0 + 0;
+break;
+case 5:
+result = (4.8 * strength + agility) * attack / 100 + 0 + 0;
+break;
+case 6:
+result = (3.4 * strength + agility) * attack / 100 + 0 + 0;
+break;
+case 7:
+result = (3.0 * strength + agility) * attack / 100 + 0 + 0;
+break;
+case 8:
+result = (5.0 * strength + agility) * attack / 100 + 0 + 0;
+break;
+case 9:
+result = (5.0 * strength + agility) * attack / 100 + 0 + 0;
+break;
+case 10:
+result = (3.0 * strength + agility) * attack / 100 + 0 + 0;
+break;
+case 11:
+result = (4.0 * strength + agility) * attack / 100 + 0 + 0;
+break;
+case 12:
+result = ((strength + agility + luck * 3.6) * attack) / 100 + 0 + 0;
+break;
+case 13:
+result = ((strength + agility * 3.4) * attack) / 100 + 0 + 0;
+break;
+case 14:
+result = ((strength + agility * 3.6) * attack) / 100 + 0 + 0;
+break;
+case 15:
+result = ((4.8 * strength + agility) * attack) / 100 + 0 + 0;
+break;
+case 16:
+result = ((strength + agility * 3.6) * attack) / 100 + 0 + 0;
+break;
+default:
+result = 0;
+break;
+}
+
+        document.getElementById("result").innerHTML = "表攻增加：" + result;
+
+        var ratio = result / price;
+
+        document.getElementById("ratio").innerHTML = "你的每一元都帶來：" + ratio;
+    }
+</script>
+          
+        <div class="section">
+            <h2>友善連結</h2>
+        </div>
+ </div>
 
 </body></html>
