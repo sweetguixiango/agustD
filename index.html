@@ -11,7 +11,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 150vh;
             margin: 10px 70px;
              border: 10px solid #dcdcdc; /* 灰色邊框 */
         }
@@ -35,6 +35,8 @@
     <input type="text" id="attack" placeholder="攻擊"><br>
     <label for="price">價錢：</label>
     <input type="text" id="price" placeholder="價錢"><br>
+           <label for="original">原表功：</label>
+    <input type="text" id="original" placeholder="原表功"><br>
     <select id="weapon">
         <option value="1">單手劍</option>
         <option value="2">單手斧/棍/短杖/長杖 (砍)</option>
@@ -123,18 +125,26 @@ result = 0;
 break;
 }
 
-        document.getElementById("result").innerHTML = "表攻增加：" + result;
+        document.getElementById("result").innerHTML = "表攻：" + result;
 
-        var ratio = result / price;
+        var ratio = (result-original) / price;
 
         document.getElementById("ratio").innerHTML = "你的每一元都帶來：" + ratio;
     }
 </script>
           
        <div class="section">
-         
-           <h2> 　　</h2>
-          
+      <span style="font-size: 20px;">
+           <h2>完整步驟 </h2></span>
+<span style="font-size: 10px;">
+<h2>1. 先輸入目前的能力值（乾表）。</h2>
+<h2>2. 隨便打一個攻擊，例如100,價錢打1。</h2>
+<h2>3. 得出的結果去對應乾表。如果不夠，就把攻擊往上加，找出你現在的全身攻擊。</h2>
+<h2>4. 把新裝備的數據計算一下與舊裝備的差距。</h2>
+<h2>5. 填上新的全部能力值，在原表攻內填寫原表攻，並填上新裝備的購買價錢。</h2>
+<h2>6. 按下計算，便會得到最正確的數字</h2>
+<h2> 　</h2>
+          </span>
            <div style="text-align: center; position: relative; bottom: 30px;" class="gwd-div-v2ia">
     <a href="https://www.dms113.com" style="color: blue; margin-right: 1em;">夢時代楓之谷官網</a>
  <h2> </h2>
